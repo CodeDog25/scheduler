@@ -7,16 +7,17 @@ export default function useVisualMode(initial) {
   const transition = (newMode, replace = false) => {
     if (!replace) {
       setMode(newMode);
-      history.push(newMode);
+      setHistory(prevHistory => [...prevHistory, newMode]);
     } else {
       setMode(newMode);
+      setHistory(prevHistory => [...prevHistory.slice(0, -1), newMode]);
     }
   };
-  
+    
   const back = function () {
     if (history.length > 1) {
-      history.pop();
-      setMode(history[history.length - 1]);
+      setMode(history[history.length - 2]);
+      setHistory(prevHistory => prevHistory.slice(0, -1));
     }
   };
 
