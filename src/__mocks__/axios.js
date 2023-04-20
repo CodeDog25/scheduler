@@ -81,5 +81,21 @@ const fixtures = {
           data: fixtures.interviewers
         });
       }
+    }),
+
+    // mock the put request for updating appointments
+    put: jest.fn(url => {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content"
+      });
+    }),
+
+    // mock the delete request for cancelling appointments
+    delete: jest.fn(url => {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content"
+      });
     })
-  };
+};
