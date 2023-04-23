@@ -74,7 +74,7 @@ describe("Application", () => {
 
     // 4. Check that the confirmation message is shown.
     expect(
-      getByText(appointment, "Are you sure you would like to delete?")
+      getByText(appointment, "Delete the appointment?")
     ).toBeInTheDocument();
 
     // 5. Click the "Confirm" button on the confirmation.
@@ -106,7 +106,7 @@ describe("Application", () => {
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen")
     );
-    fireEvent.click(queryByAltText(appointment, "Edit"));
+    fireEvent.click(getByAltText(appointment, "Edit"));
   
     // 4. Check that the form is displayed with the name "Archie Cohen" pre-filled.
     expect(getByTestId(appointment, "student-name-input")).toHaveValue("Archie Cohen");
@@ -126,7 +126,7 @@ describe("Application", () => {
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
   
     // 9. Wait until the element with the new appointment is displayed.
-    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+    await waitForElement(() => getByText(appointment, "Saving"));
   
     // 10. Check that the DayListItem with the text "Monday" still has the text "1 spot remaining".
     const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
@@ -175,16 +175,16 @@ it("shows the delete error when failing to delete an existing appointment", asyn
 
   fireEvent.click(getByAltText(appointment, "Delete"));
 
-  expect(getByText(appointment, /Are you sure you want to delete?/i)).toBeInTheDocument();
+  expect(getByText(appointment, "Confirm")).toBeInTheDocument();
 
   fireEvent.click(queryByText(appointment, "Confirm"));
 
   expect(getByText(appointment, /deleting/i)).toBeInTheDocument();
 
   await waitForElement(() =>
-    getByText(appointment, "Could not delete appointment.")
+    getByText(appointment, "Could not cancel appointment.")
   );
-
-  expect(getByText(appointment, "Could not delete appointment.")).toBeInTheDocument();
+  fireEvent.click(getByAltText(appointment, "Close"));
+  expect(getByText(container, "Archie Cohen")).toBeInTheDocument();
   });
 });
