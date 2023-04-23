@@ -12,6 +12,7 @@ export default function useApplicationData() {
   const setDay = (day) => {
     setState({ ...state, day });
   };
+  
 
   useEffect(() => {
     Promise.all([
@@ -25,7 +26,7 @@ export default function useApplicationData() {
         appointments: all[1].data,
         interviewers: all[2].data,
       }));
-    })
+    }, [])
       .catch(error => {
         console.log(error);
       });
