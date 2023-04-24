@@ -24,6 +24,11 @@ npm run storybook
 ```
 
 ## Screenshots
+<img width="1257" alt="Screenshot 2023-04-24 at 11 45 27 AM" src="https://user-images.githubusercontent.com/88526405/234078872-14fca4fa-b640-41bf-9aa2-66a6c9c35eb8.png">
+<img width="1247" alt="Screenshot 2023-04-24 at 11 46 01 AM" src="https://user-images.githubusercontent.com/88526405/234079163-6e2e9637-5604-4ccd-a87f-6d03ee04cf05.png">
+<img width="1255" alt="Screenshot 2023-04-24 at 11 46 22 AM" src="https://user-images.githubusercontent.com/88526405/234079185-f06ea4b5-b3de-4d20-9bc2-f32d215913fa.png">
+<img width="1255" alt="Screenshot 2023-04-24 at 11 48 40 AM" src="https://user-images.githubusercontent.com/88526405/234079197-63097daa-7997-4b09-955b-5017d602959b.png">
+
 
 ## Dependancies
 * axios: 0.20.0
